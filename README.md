@@ -1,41 +1,11 @@
 # Envelope VAR model simulation.
 Envelope model, put forward by Cook (2010), can improve estimation and prediction. VAR model is vector autoregression for multivariate time series. 
-Based on envelope model setting, simulate one order time series data, compare VAR and envelope model on estimation and prediction. 
+Based on envelope model setting, simulate one order time series data, compare VAR and envelope model on estimation and prediction. Set number of repetitions, sample size, number of time series, envelope dimension, sigma and sigma0
 
 * code 
 ```
-# library needed and input envelope R file from local laptop
+# library needed and input envelope R file from local laptop or find available envelope library 
 library(MASS)
-
-source(file="C:/Users/Lenovo/Desktop/Time series project/u.varenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/u.varpenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/varenv(2).R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/varpenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/boot.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/boot.penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/boot.xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/contr.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/cv.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/cv.penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/cv.xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/envMU.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/expan.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/GE.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/predict.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/predict.penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/predict.xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/predict2.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/testcoef.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/testcoef.penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/testcoef.xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/u.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/u.penv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/u.predict2.env.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/u.xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/xenv.R")
-source(file="C:/Users/Lenovo/Desktop/Time series project/envlp/R/data.trans.R")
 
 
 N=100 # number of repetitions (simulation)
@@ -58,7 +28,8 @@ LL = qr.Q(LL, complete=TRUE)
 L = LL[,1:u1]
 L0 = LL[,(u1+1):r]
 
-beta1 = L%*%t(eta1)
+beta1 = L%*%t(eta1) # if u1=1
+beta1 = L%*%eta1 # if u1>1
 Sigma1 = L%*%t(L)*sigma^2+L0%*%t(L0)*sigma0^2
 Sigma = Sigma1
 Omega1 = sigma^2*diag(u1)
