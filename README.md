@@ -1,8 +1,9 @@
-#### Simulation
+# Simulation
 Envelope VAR model simulation
 
-
-library(MASS)
+* library needed 
+* code 
+```library(MASS)
 
 source(file="C:/Users/Lenovo/Desktop/Time series project/u.varenv.R")
 source(file="C:/Users/Lenovo/Desktop/Time series project/u.varpenv.R")
@@ -178,4 +179,4 @@ points(n, bar_beta_env, col="red", pch=16)
 lines(n, bar_beta_env, col="red")
 legend("topright",legend=c("VAR model","Envelope model"),
        text.col=c("blue","red"))
-\\\
+```
