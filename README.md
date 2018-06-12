@@ -1,9 +1,8 @@
-# Simulation
+#### Simulation
 Envelope VAR model simulation
-\\\#library(abind)
+
+
 library(MASS)
-#library(matrixcalc)
-#library(magic)
 
 source(file="C:/Users/Lenovo/Desktop/Time series project/u.varenv.R")
 source(file="C:/Users/Lenovo/Desktop/Time series project/u.varpenv.R")
