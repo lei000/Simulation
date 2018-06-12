@@ -1,6 +1,6 @@
 # Simulation
 Envelope VAR model simulation
-#library(abind)
+\\\#library(abind)
 library(MASS)
 #library(matrixcalc)
 #library(magic)
@@ -179,3 +179,4 @@ points(n, bar_beta_env, col="red", pch=16)
 lines(n, bar_beta_env, col="red")
 legend("topright",legend=c("VAR model","Envelope model"),
        text.col=c("blue","red"))
+\\\
